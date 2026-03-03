@@ -88,6 +88,54 @@
         padding: 10px;
         display: inline-block;
       }
+      .card-none {
+        display: none;
+      }
+      .card-hidden {
+        visibility: hidden;
+      }
+
+      .card-element {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        margin: 20px;
+        border: 0.5px #5e5e5e60 dotted;
+      }
+
+      .relative {
+        position: relative;
+        background-color: #faebd7;
+      }
+
+      .badge-promo {
+        padding: 5px 10px;
+        margin: 10px;
+        background-color: #ff0000;
+        color: #ffff;
+        font-size: 0.7rem;
+        border-radius: 8px;
+        position: absolute;
+        top: -15px;
+        right: -15px;
+      }
+      .area-fixed {
+        width: 40px;
+        height: 40px;
+        background-color: #007100;
+        padding: 30px;
+        border-radius: 100%;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .position-sticky{
+        position: sticky;
+        top: 10px;
+        z-index: 1;
+      }
+
     </style>
 
     <!-- external css -->
@@ -168,6 +216,107 @@
         <span class="card-inline-block">Card Span inline 2</span>
         <span class="card-inline-block">Card Span inline 3</span>
       </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h1>Ini adalah display none</h1>
+        <p>Ciri ciri display none :</p>
+        <ol>
+          <li>Menghilangkan elemen atau bukan menyembunyikan</li>
+          <li>Berbeda dengan visible</li>
+        </ol>
+      </div>
+
+      <div class="card-block">Card block 1</div>
+      <div class="card-block card-none">Card block 2</div>
+      <div class="card-block">Card block 3</div>
+
+      <span class="card-block">Card Span block 1</span>
+      <span class="card-block card-hidden">Card Span block 2</span>
+      <span class="card-block">Card Span block 3</span>
+    </div>
+
+    <div class="container position-sticky">
+      <div class="card">
+        <h1>Postion sticky</h1>
+        <p>Posisi ini akan fixed pada posisi tertentu.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h1>Postion Relative</h1>
+        <p>Bergeser dari posisi aslinya.</p>
+      </div>
+      <div class="card">
+        <div class="card-element relative" style="top: 100px; left: 60px">
+          <p>Ini adalah card relatif</p>
+        </div>
+        <div class="card-element">
+          <p>Ini adalah card relatif</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h1>Postion Absolute</h1>
+        <p>Bergeser dari saat pada parent dengan posisi relative</p>
+        <p>Jika pareent nya bukan relative, maka akan mengambil dari body</p>
+      </div>
+      <div class="card">
+        <div class="card-element relative">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,
+            dolorum? Odio ullam dignissimos dolores expedita adipisci nobis
+            nostrum quam consequatur?
+          </p>
+
+          <span class="badge-promo">Best Seller!!</span>
+        </div>
+        <div class="card-element relative">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit
+            eaque, deserunt quo asperiores sequi ullam?
+          </p>
+          <span class="badge-promo">Best Seller!!</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="area-fixed">
+      <svg
+        viewBox="0 0 48 48"
+        id="Layer_2"
+        data-name="Layer 2"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#ffffff"
+        stroke="#ffffff"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+                stroke: #fffff;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+              }
+            </style>
+          </defs>
+          <path
+            class="cls-1"
+            d="M24,2.5A21.52,21.52,0,0,0,5.15,34.36L2.5,45.5l11.14-2.65A21.5,21.5,0,1,0,24,2.5ZM13.25,12.27h5.86a1,1,0,0,1,1,1,10.4,10.4,0,0,0,.66,3.91,1.93,1.93,0,0,1-.66,2.44l-2.05,2a18.6,18.6,0,0,0,3.52,4.79A18.6,18.6,0,0,0,26.35,30l2-2.05c1-1,1.46-1,2.44-.66a10.4,10.4,0,0,0,3.91.66,1.05,1.05,0,0,1,1,1v5.86a1.05,1.05,0,0,1-1,1,23.68,23.68,0,0,1-15.64-6.84,23.6,23.6,0,0,1-6.84-15.64A1.07,1.07,0,0,1,13.25,12.27Z"
+          ></path>
+        </g>
+      </svg>
     </div>
   </body>
 </html>
