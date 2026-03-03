@@ -18,9 +18,11 @@
             . (titik ) adalah selector pemanggil class
         */
 
-      p {
+      * {
         font-family: "Google Sans", sans-serif;
         font-optical-sizing: auto;
+        padding: 0;
+        margin: 0;
       }
 
       .container {
@@ -44,11 +46,12 @@
       }
 
       .card {
-        width: 300px;
-        height: 200px;
-        padding: 20px;
-        margin: 0;
-        /* border: 0.5px #5b5b5b solid; */
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 100px;
+        border: 0.5px #5e5e5e60 dotted;
+        margin: 10px;
+        padding: 30px;
       }
 
       .text-geser {
@@ -60,8 +63,7 @@
         border-image: linear-gradient(to right, #0088cc, #ffee00) 1;
       }
 
-
-      .card-block{
+      .card-block {
         width: 300px;
         height: 70px;
         border: 0.5px #5e5e5e60 dotted;
@@ -70,6 +72,14 @@
         display: block;
       }
 
+      .card-inline {
+        width: 300px;
+        height: 70px;
+        border: 0.5px #5e5e5e60 dotted;
+        margin: 30px;
+        padding: 10px;
+        display: inline;
+      }
     </style>
 
     <!-- external css -->
@@ -87,8 +97,15 @@
       </div>
     </div>
     <div class="container">
-      <h1>Ini adalah display block</h1>
-      <p>Selalu memulai dari baris baru dan menguasai 1 baris.</p>
+      <div class="card">
+        <h1>Ini adalah display block</h1>
+        <p>Ciri ciri display block :</p>
+        <ol>
+          <li>Ukuran bisa diatur (width, height)</li>
+          <li>Padding dan margin bisa diatur</li>
+          <li>Selalu membuat garis baru</li>
+        </ol>
+      </div>
 
       <div class="card-block">Card block 1</div>
       <div class="card-block">Card block 2</div>
@@ -97,9 +114,29 @@
       <span class="card-block">Card Span block 1</span>
       <span class="card-block">Card Span block 2</span>
       <span class="card-block">Card Span block 3</span>
+    </div>
 
+    <div class="container">
+      <div class="card">
+        <h1>Display Inline</h1>
+        <p>Ciri ciri display inline :</p>
+        <ol>
+          <li>Membuat elemen di baris yang sama (1 barus)</li>
+          <li>Ukuran tidak bisa diubah</li>
+          <li>padding berlaku</li>
+          <li>margin hanya margin x (kiri dan kanan) yang berlaku</li>
+        </ol>
+      </div>
 
+      <div class="card">
+        <div class="card-inline">Card inline 1</div>
+        <div class="card-inline">Card inline 2</div>
+        <div class="card-inline">Card inline 3</div>
 
+        <span class="card-inline">Card Span inline 1</span>
+        <span class="card-inline">Card Span inline 2</span>
+        <span class="card-inline">Card Span inline 3</span>
+      </div>
     </div>
   </body>
 </html>
