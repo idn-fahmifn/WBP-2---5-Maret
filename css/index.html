@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- fonts dari google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* 
+            . (titik ) adalah selector pemanggil class
+        */
+
+      p {
+        font-family: "Google Sans", sans-serif;
+        font-optical-sizing: auto;
+      }
+
+      .container {
+        width: 80dvw;
+        min-height: 20dvh;
+        background: #fcfcfc;
+        border: 0.5px #5d5d5d60 solid;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 8px 20px 0px #5e5e5e40;
+      }
+
+      .text-biru {
+        color: #0088cc;
+        background-color: #00ff00; /* digunakan untuk background */
+      }
+
+      .text-besar {
+        font-size: 1.5rem;
+      }
+
+      .card {
+        width: 300px;
+        height: 200px;
+        padding: 20px;
+        margin: 0;
+        /* border: 0.5px #5b5b5b solid; */
+      }
+
+      .text-geser {
+        text-align: right;
+      }
+
+      .border-gradient {
+        border: 5px solid;
+        border-image: linear-gradient(to right, #0088cc, #ffee00) 1;
+      }
+
+
+      .card-block{
+        width: 300px;
+        height: 70px;
+        border: 0.5px #5e5e5e60 dotted;
+        margin: 10px;
+        padding: 10px;
+        display: block;
+      }
+
+    </style>
+
+    <!-- external css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-biru">Hallo saya sedang belajar CSS</h1>
+      <h1>Judul kedua</h1>
+
+      <p class="text-besar">Google sans</p>
+
+      <div class="card border-gradient">
+        <p class="text-geser">Judul Kartu</p>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Ini adalah display block</h1>
+      <p>Selalu memulai dari baris baru dan menguasai 1 baris.</p>
+
+      <div class="card-block">Card block 1</div>
+      <div class="card-block">Card block 2</div>
+      <div class="card-block">Card block 3</div>
+
+      <span class="card-block">Card Span block 1</span>
+      <span class="card-block">Card Span block 2</span>
+      <span class="card-block">Card Span block 3</span>
+
+
+
+    </div>
+  </body>
+</html>
