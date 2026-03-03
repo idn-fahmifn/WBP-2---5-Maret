@@ -130,10 +130,30 @@
         right: 20px;
       }
 
-      .position-sticky{
+      .position-sticky {
         position: sticky;
         top: 10px;
+        bottom: 0;
         z-index: 1;
+      }
+
+      .d-flex {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .justify {
+        justify-content: space-between;
+      }
+
+      .align {
+        align-items: center;
+      }
+
+      .card-flex{
+        flex-basis: 300px; /*nilai normal = 300px*/
+        flex-grow: 1;
+        flex-shrink: 1;
       }
 
     </style>
@@ -146,7 +166,7 @@
       <h1 class="text-biru">Hallo saya sedang belajar CSS</h1>
       <h1>Judul kedua</h1>
 
-      <p class="text-besar">Google sans</p>
+      <p class="text-besar" style="float: right">Google sans</p>
 
       <div class="card border-gradient">
         <p class="text-geser">Judul Kartu</p>
@@ -282,6 +302,18 @@
           </p>
           <span class="badge-promo">Best Seller!!</span>
         </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card d-flex justify">
+        <div class="card-element card-flex">Card Element Flex</div>
+        <div class="card-element card-flex">Card Element Flex</div>
+        <div class="card-element card-flex">Card Element Flex</div>
+        <div class="card-element card-flex">Card Element Flex</div>
+        <div class="card-element card-flex">Card Element Flex</div>
+        <div class="card-element card-flex">Card Element Flex</div>
+        <div class="card-element card-flex">Card Element Flex</div>
       </div>
     </div>
 
