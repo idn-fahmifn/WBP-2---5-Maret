@@ -150,11 +150,52 @@
         align-items: center;
       }
 
-      .card-flex{
+      .card-flex {
         flex-basis: 300px; /*nilai normal = 300px*/
         flex-grow: 1;
         flex-shrink: 1;
       }
+
+      .d-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .card-grid {
+        padding: 30px;
+        border: 0.5px #5e5e5e60 dotted;
+        /* margin: 10px; */
+      }
+
+      @media screen and (max-width: 768px) {
+        .card-grid {
+          background-color: #0088cc;
+        }
+
+        .card-inline{
+          display: inline-block;
+        }
+
+        .d-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 425px) {
+        .card-grid {
+          background-color: #ccad00;
+        }
+
+        .d-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+
+
+
+
 
     </style>
 
@@ -314,6 +355,16 @@
         <div class="card-element card-flex">Card Element Flex</div>
         <div class="card-element card-flex">Card Element Flex</div>
         <div class="card-element card-flex">Card Element Flex</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card d-grid">
+        <div class="card-grid">Card Element Grid</div>
+        <div class="card-grid">Card Element Grid</div>
+        <div class="card-grid">Card Element Grid</div>
+        <div class="card-grid">Card Element Grid</div>
+        <div class="card-grid">Card Element Grid</div>
       </div>
     </div>
 
