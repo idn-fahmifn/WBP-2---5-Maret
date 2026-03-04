@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" onclick="return confirm('Hallo javascript');">
+      Tekan!
+    </button>
+
+    <!-- external js -->
+    <script src=""></script>
+
+    <!-- internal js -->
+    <script>
+      // masukan kodenya
+
+      let nama;
+      nama = "jajang";
+      console.log(nama);
+
+      const Nama = "Alex";
+      console.log(Nama);
+
+      let hallo = "Hallo nama saya adalah ... "; //tipe data string karena mewakili sebuah text
+      console.log(
+        "Hallo saya punya teman, namanya adalah " + nama + " dan " + Nama,
+      );
+      console.log(
+        `Hallo nama saya fahmi, Saya punya teman namanya ${nama} dan ${Nama}`,
+      );
+
+      let angka = 1;
+      console.log(angka - "table");
+
+      let yakin = true;
+      console.log(yakin);
+
+      let buat; //undifined tidak bisa menggunakan const
+      console.log(buat);
+
+      let kosong = 0;
+      kosong = null;
+      console.log(yakin + angka);
+
+      let biodata = {
+        name: "Fahmi",
+        address: "Jalan Merdeka no 34",
+        city: "jakarta Barat",
+        age: 17,
+        is_marriage: false,
+        education: {
+          high_school: "SMK N 1 Jakarta Barat",
+          bechelor: "Tangerang University",
+        },
+      };
+
+      console.log(biodata);
+      console.log(
+        `Hallo semua, pendidikan s1 saya adalah : ${biodata.education.bechelor}`,
+      );
+
+      let buah = ["apel", "jeruk", "nanas", "durian", 4];
+      console.log(buah[1]);
+
+      //   operator
+
+      //   Aritmatika
+      let a = 100;
+      let b = 40;
+
+      console.log(a + b); //140
+      console.log(a - b); //60
+      console.log(a * b); //4000
+      console.log(a / b); // 2,***
+      console.log(a % b); //20
+
+      //   penugasan
+
+      let c = 400;
+      c += 300; // c = 700
+      console.log(c);
+
+      c *= 2; // c = 1400
+      c /= 4; // c = 350
+      console.log(c);
+
+      let contoh1 = 400;
+      let contoh2 = 500;
+      let contoh3 = "500";
+
+      console.log(contoh1 == contoh2); //false
+      console.log(contoh2 == contoh3); //true
+      console.log(contoh2 === contoh3); //false
+
+      console.log(contoh1 != contoh2); //true
+
+      console.log(contoh1 > contoh2); //false
+      console.log(contoh2 >= contoh3); //false
+
+      let gajian = true;
+      let libur = false;
+      let hiling = false;
+
+      console.log(gajian && !hiling); //true
+      console.log(libur && hiling); //false
+
+      console.log(contoh1 < contoh3 && contoh2 == contoh3);
+
+      console.log(libur || hiling); //false
+
+      console.log(contoh1 < contoh3 && contoh2 == contoh3 && contoh1 > contoh3);
+
+      //    ternerary :
+
+      let ktp = 99;
+
+      let bikin =
+        ktp >= 18
+          ? console.log("Kamu bisa bikin ktp")
+          : console.log("Kamu tidak bisa bikin KTP");
+
+      //   let mobil = prompt("Apakah kamu punya mobil??")
+      //   let jawaban = (mobil === 'ada') ? alert("Kamu punya mobil") : (mobil === 'sewa') ?
+      //   alert("mobil kamu masih sewa") : alert("kamu belum punya mobil")
+
+      //   konversi
+      console.log(typeof contoh1);
+      console.log(typeof contoh2);
+      console.log(typeof contoh3);
+
+      console.log(contoh2 + Number(contoh3));
+
+      // kondisi 2 if else, switch
+
+      if (ktp >= 18 && ktp <= 99) {
+        console.log("Kamu bisa bikin KTP");
+      } else if (ktp <= 0 || ktp > 99) {
+        console.log("input yang dimasukan salah");
+      } else {
+        console.log("Kamu belum bisa bikin KTP");
+      }
+
+      //   switch
+
+      //   let hari = prompt("Masukan hari ini!");
+
+      let hari = "sabtu";
+      switch (hari.toLocaleLowerCase()) {
+        case "senin":
+          console.log("Jadwal hari ini adalah futsal");
+          break;
+        case "selasa":
+          console.log("Jadwal hari ini adalah padel");
+          break;
+        case "rabu":
+        case "kamis":
+        case "jumat":
+          console.log("Jadwal hari ini adalah badminton");
+          break;
+        case "sabtu":
+        case "minggu":
+          console.log("Libur");
+          break;
+        default:
+          console.log("hari yang kamu masukan tidak sesuai");
+          break;
+      }
+
+      //   perulangan for :
+      for (let a = 0; a <= 10; a++) {
+        console.log("Saya sedang mengulang sebanyak ... ", a);
+      }
+
+      for (let a = 20; a >= 10; a--) {
+        console.log("Hitungan mundur dari ...", a);
+      }
+
+      let mobil = ["mazda", "toyota", "suzuki", "honda", "mercy"]
+      mobil.push('BYD');
+      mobil.push('Hino');
+      console.log(mobil)
+
+      for(let b = 0; b < mobil.length; b++){
+        console.log("Mobil saya adalah..", mobil[b])
+      }
+
+
+
+    </script>
+  </body>
+</html>
