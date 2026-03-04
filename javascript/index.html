@@ -10,6 +10,8 @@
       Tekan!
     </button>
 
+    <button type="button" onclick="return hello()">Button hello </button>
+
     <!-- external js -->
     <script src=""></script>
 
@@ -241,17 +243,37 @@
       }
 
       const password = "hallojs";
-      let input; // hallojs
+      let input;
 
-      while (password !== input) {
-        if (password !== input) {
+      function auth() {
+        while (password != input) {
           input = prompt("Masukan Password kamu");
-        } else if (!input) {
-          break;
         }
+
+        alert("kamu berhasil Login");
       }
 
-      alert("kamu berhasil Login");
+      function hello() {
+        alert("hallo saya sedang belajar js");
+      }
+
+    //   function dengan parameter
+
+    function sapa(nama, teman){
+        console.log("hallo " + nama +teman )
+    }
+
+    sapa('asep', 'jajang')
+
+
+    // arrow function
+    let rectangle = (panjang, lebar) => {
+        let luas = panjang * lebar
+        return luas;
+    }
+
+    console.log(rectangle(20, 30))
+
 
     </script>
   </body>
