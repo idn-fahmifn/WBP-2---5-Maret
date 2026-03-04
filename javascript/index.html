@@ -178,17 +178,59 @@
         console.log("Hitungan mundur dari ...", a);
       }
 
-      let mobil = ["mazda", "toyota", "suzuki", "honda", "mercy"]
-      mobil.push('BYD');
-      mobil.push('Hino');
-      console.log(mobil)
+      let mobil = ["mazda", "toyota", "suzuki", "honda", "mercy"];
+      mobil.push("BYD");
+      mobil.push("Hino");
+      console.log(mobil);
 
-      for(let b = 0; b < mobil.length; b++){
-        console.log("Mobil saya adalah..", mobil[b])
+      for (let b = 0; b < mobil.length; b++) {
+        console.log("Mobil saya adalah..", mobil[b]);
       }
 
+      // break = menghentikan secara paksa looping
+      // continue = melewati angka yang kita loop
 
+      for (let i = 0; i <= 30; i++) {
+        // Nilai ganjil
 
+        if (i % 2 != 0) {
+          continue;
+        }
+
+        console.log("saya ulang ..", i);
+      }
+
+      //   looping angka dari 0 - 30:
+
+      // mas fabi = ganjil
+      // mas geovan = genap
+
+      for (let a = 1; a <= 5; a++) {
+        for (let b = 1; b <= 5; b++) {
+          console.log(`Baris ${a}, Kolom ${b}`);
+        }
+      }
+
+      //   modern js:
+
+      // for ... of => array
+      // for ... in => object
+
+      // for of :
+      const motor = ["Honda", "Yamaha", "Suzuki", "Kawasaki", "Polytron"];
+
+      for (const i of motor) {
+        console.log("Motor saya adalah " + i);
+      }
+
+      const kelas = {
+        programming: "Laravel",
+        networking: "ccna",
+        cybersecurity: "CEH",
+      };
+      for (const i in kelas) {
+        console.log(i + " : " + kelas[i]);
+      }
     </script>
   </body>
 </html>
