@@ -65,7 +65,7 @@
         min-height: 60dvh;
       }
 
-      .d-grid{
+      .d-grid {
         display: grid;
         grid-template-columns: 2fr 1fr;
       }
@@ -75,7 +75,6 @@
       }
 
       @media screen and (max-width: 768px) {
-        
       }
 
       @keyframes moveDown {
@@ -123,6 +122,26 @@
     </header>
 
     <main>
+      <section id="form">
+        <div class="d-grid">
+          <div class="">
+            <form action="" method="post">
+              <div class="">
+                <label for="">Judul Artikel</label>
+                <input type="text" name="title" id="title" />
+              </div>
+              <div class="">
+                <label for="">Penulis</label>
+                <input type="text" name="author" id="author" />
+              </div>
+              <div class="">
+                <label for="">Artikel</label>
+                <textarea name="article" id="article"></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
       <!-- grid 1 -->
       <div class="d-grid">
         <section id="article">
