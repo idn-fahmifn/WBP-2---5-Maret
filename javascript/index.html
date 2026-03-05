@@ -10,7 +10,13 @@
       Tekan!
     </button>
 
-    <button type="button" onclick="return hello()">Button hello </button>
+    <button type="button" onclick="return getVideo();">Button hello</button>
+
+    <h1 id="judul">Hallo ini adalah html js</h1>
+
+    <div class="area" id="area"></div>
+
+    <div class="" id="getRow"></div>
 
     <!-- external js -->
     <script src=""></script>
@@ -257,24 +263,63 @@
         alert("hallo saya sedang belajar js");
       }
 
-    //   function dengan parameter
+      //   function dengan parameter
 
-    function sapa(nama, teman){
-        console.log("hallo " + nama +teman )
-    }
+      function sapa(nama, teman) {
+        console.log("hallo " + nama + teman);
+      }
 
-    sapa('asep', 'jajang')
+      sapa("asep", "jajang");
 
-
-    // arrow function
-    let rectangle = (panjang, lebar) => {
-        let luas = panjang * lebar
+      // arrow function
+      let rectangle = (panjang, lebar) => {
+        let luas = panjang * lebar;
         return luas;
-    }
+      };
 
-    console.log(rectangle(20, 30))
+      console.log(rectangle(20, 30));
 
+      // Document object Model
+      const title = document.getElementById("judul");
+      const area = document.getElementById("area");
+      const getRow = document.getElementById("getRow");
 
+      title.textContent = "Text Content sudah diubah oleh js.";
+      title.style.color = "#0088cc";
+      title.setAttribute("class", "text-title");
+
+      area.innerHTML = `
+    <h1>Ini adalah judul area</h1>
+
+    <div>
+      Ini adalah sub title dari judul
+    </div>
+    `;
+
+      const baru = document.createElement("p");
+      baru.setAttribute("class", "Text Paragraf baru");
+      baru.textContent = "Ini adalah konten dari variable baru";
+
+      console.log(title);
+
+      getRow.appendChild(baru);
+
+      async function getVideo() {
+        try {
+          console.log("mengambil data...");
+
+          const api = 'https://gist.githubusercontent.com/poudyalanil/ca84582cbeb4fc123a13290a586da925/raw/14a27bd0bcd0cd323b35ad79cf3b493dddf6216b/videos.json'
+
+          // tunggu srespon dari server
+          const res = await fetch(api);
+          const video = await res.json()
+          
+          console.log(video[3])
+
+        } catch (error) {
+          console.error("Ada error", error)
+        }
+      }
     </script>
   </body>
 </html>

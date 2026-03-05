@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Google Sans", sans-serif;
+      }
+
+      body {
+        width: 100dvw;
+        min-height: 100dvh;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .container {
+        min-width: 40%;
+        max-width: 80dvw;
+
+        padding: 20px;
+        background-color: hsl(0, 0%, 100%);
+        border: 0.5px solid #3e3e3e60;
+        box-shadow: 0 10px 25px #5e5e5e80;
+        border-radius: 8px;
+        margin-top: 30px;
+      }
+      .box {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        margin-top: 10px;
+        gap: 10px;
+      }
+      input,
+      button {
+        padding: 10px;
+      }
+
+      button {
+        background-color: #667eea;
+        border: none;
+        color: #fff;
+        font-weight: 600;
+        transition: 0.8s;
+      }
+
+      button:hover {
+        transform: translateY(-4px);
+        background: #764ba2;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        padding: 10px;
+        margin: 10px;
+        background-color: #faebd7;
+        display: grid;
+        grid-template-columns: 3fr 50px 50px;
+        gap: 10px;
+      }
+
+      .selesai {
+        text-decoration: line-through;
+        color: #ffbc65;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="color: #fefefe">Todo List Project</h1>
+
+    <div class="container">
+      <div class="form-input">
+        <label for="">Masukan task kamu</label>
+        <div class="box">
+          <input type="text" id="task" placeholder="Masukan tugas kamu" />
+          <button type="submit" id="addBtn">Tambah</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <ul id="taskList">
+        <!-- <li>
+                Lorem ipsum dolor sit amet consectetur.
+
+                <button style="background-color: #ff0000;" >D</button>
+                <button style="background-color: #ffae00;">C</button>
+
+            </li> -->
+      </ul>
+    </div>
+
+    <script>
+      const input = document.getElementById("task");
+      const btnAdd = document.getElementById("addBtn");
+      const list = document.getElementById("taskList");
+
+      btnAdd.addEventListener("click", function () {
+        const task = input.value;
+
+        if (task === "") {
+          alert("Isi terlebih dahulu form kamu");
+          return;
+        }
+
+        // membuat elemen baru
+        const li = document.createElement("li");
+
+        const textlist = document.createElement("span");
+        const destroy = document.createElement("button");
+        const check = document.createElement("button");
+
+        textlist.innerText = task;
+
+        destroy.style.backgroundColor = "#ff0000";
+        destroy.innerText = "❎";
+        destroy.onclick = function () {
+          li.remove();
+        };
+
+        check.style.backgroundColor = "#ffae00";
+        check.innerText = "✅";
+        check.onclick = function () {
+          textlist.classList.toggle("selesai");
+
+          if (textlist.classList.contains("selesai")) {
+            check.innerText = "↩️";
+          } else {
+            check.innerText = "✅";
+          }
+        };
+
+        // hasilnya tambahkan ke ul
+        list.appendChild(li);
+        li.appendChild(textlist);
+        li.appendChild(destroy);
+        li.appendChild(check);
+
+        input.value = "";
+      });
+
+      // Promise es6
+      // pending, fillfilled, reject
+
+      const getData = new Promise((resolve, reject) => {
+        let success = true;
+        if (sukses) resolve("Data successfully");
+        else reject("Gagal");
+      });
+
+      getData
+      .then(res => console.log(res)) //jika sukses
+      .catch(err => console.log(res)) //jika gagal
+
+
+      
+
+    </script>
+  </body>
+</html>
