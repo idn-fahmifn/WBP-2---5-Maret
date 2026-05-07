@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CRUD Sederhana</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 0 15px;
+      }
+      input,
+      button {
+        padding: 8px;
+        margin: 4px;
+      }
+      input[type="text"],
+      input[type="url"] {
+        width: 250px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+        vertical-align: middle;
+      }
+      th {
+        background: #f0f0f0;
+      }
+      img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>CRUD Produk Sederhana</h2>
+
+    <!-- FORM INPUT (di atas) -->
+    <form id="form">
+      <!-- input hidden untuk menyimpan ID saat edit -->
+      <input type="hidden" id="id" />
+      <input type="text" id="product_name" placeholder="Nama produk" required />
+      <input
+        type="url"
+        id="photo"
+        placeholder="URL gambar (https://...)"
+        required
+      />
+      <button type="submit">Simpan</button>
+      <button type="button" onclick="resetForm()">Batal</button>
+    </form>
+
+    <!-- TABEL DATA (di bawah) -->
+    <table>
+      <thead>
+        <tr>
+          <th>Gambar</th>
+          <th>Nama Produk</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+      // === Base URL API ===
+      const URL = "https://628a02565da6ddfd5d5ebd4c.mockapi.io/v1/product";
+
+      // === Ambil elemen DOM yang dipakai ===
+      const form = document.getElementById("form");
+      const tbody = document.getElementById("tbody");
+
+      // === READ: Ambil semua data dari API lalu tampilkan ke tabel ===
+      function getData() {
+        fetch(URL) // panggil API
+          .then((res) => res.json()) // ubah response jadi JSON
+          .then((data) => {
+            tbody.innerHTML = ""; // kosongkan tabel dulu
+            data.forEach((item) => {
+              // loop tiap data
+              // buat baris tabel pakai DOM (innerHTML)
+              tbody.innerHTML += `
+              <tr>
+                <td><img src="${item.photo}" alt="${item.product_name}"></td>
+                <td>${item.product_name}</td>
+                <td>
+                  <button onclick="editData('${item.id}', '${item.product_name}', '${item.photo}')">Edit</button>
+                  <button onclick="hapusData('${item.id}')">Hapus</button>
+                </td>
+              </tr>
+            `;
+            });
+          });
+      }
+
+      // === CREATE & UPDATE: dijalankan saat form di-submit ===
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // cegah reload halaman
+
+        // ambil value dari input
+        const id = document.getElementById("id").value;
+        const product_name = document.getElementById("product_name").value;
+        const photo = document.getElementById("photo").value;
+
+        // siapkan data yang akan dikirim (sesuai field di API)
+        const body = JSON.stringify({ product_name, photo });
+
+        if (id === "") {
+          // CREATE: kalau id kosong → tambah data baru (POST)
+          fetch(URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: body,
+          }).then(() => {
+            resetForm(); // kosongkan form
+            getData(); // refresh tabel
+          });
+        } else {
+          // UPDATE: kalau id ada → ubah data (PUT)
+          fetch(URL + "/" + id, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: body,
+          }).then(() => {
+            resetForm();
+            getData();
+          });
+        }
+      });
+
+      // === Saat tombol Edit diklik: isi form dengan data terpilih ===
+      function editData(id, product_name, photo) {
+        document.getElementById("id").value = id;
+        document.getElementById("product_name").value = product_name;
+        document.getElementById("photo").value = photo;
+      }
+
+      // === DELETE: hapus data berdasarkan id ===
+      function hapusData(id) {
+        if (confirm("Yakin hapus data ini?")) {
+          fetch(URL + "/" + id, { method: "DELETE" }).then(() => getData()); // refresh tabel setelah hapus
+        }
+      }
+
+      // === Reset form ke kondisi awal ===
+      function resetForm() {
+        form.reset();
+        document.getElementById("id").value = "";
+      }
+
+      // === Jalankan getData() pertama kali saat halaman dibuka ===
+      getData();
+    </script>
+  </body>
+</html>
